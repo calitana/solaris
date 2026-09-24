@@ -61,7 +61,8 @@ class SitiosViewModel(
         potenciaKw: Double,
         idCliente: String = "",
         nombreCliente: String = "",
-        ubicacion: String = ""
+        ubicacion: String = "",
+        modelo: String = "Jinko Solar Tiger Neo"
     ) {
         if (nombreLugar.isBlank() || cantidadPaneles <= 0 || potenciaKw <= 0.0) {
             _estadoOperacion.value = Resultado.Error("Nombre del lugar, cantidad de paneles y potencia en kW son obligatorios.")
@@ -74,7 +75,8 @@ class SitiosViewModel(
             potenciaKw = potenciaKw,
             idCliente = idCliente,
             nombreCliente = nombreCliente.ifBlank { "General" },
-            ubicacion = ubicacion.trim()
+            ubicacion = ubicacion.trim(),
+            modelo = modelo
         )
 
         viewModelScope.launch {

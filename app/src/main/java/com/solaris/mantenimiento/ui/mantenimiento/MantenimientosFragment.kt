@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -25,7 +26,7 @@ class MantenimientosFragment : Fragment() {
     private var _binding: FragmentMantenimientosBinding? = null
     private val binding get() = _binding!!
 
-    private val mantenimientosViewModel: MantenimientosViewModel by viewModels()
+    private val mantenimientosViewModel: MantenimientosViewModel by activityViewModels()
     private val authViewModel: AutenticacionViewModel by viewModels()
     private lateinit var adapter: MantenimientosAdapter
 
@@ -74,23 +75,40 @@ class MantenimientosFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                mantenimientosViewModel.listaMantenimientos.collect { resultado ->
-                    when (resultado) {
-                        is Resultado.Cargando -> {
-                            binding.progressBar.visibility = View.VISIBLE
-                            binding.layoutVacio.visibility = View.GONE
+                // Collect the list of mantenimientos
+                launch {
+                    mantenimientosViewModel.listaMantenimientos.collect { resultado ->
+                        when (resultado) {
+                            is Resultado.Cargando -> {
+                                binding.progressBar.visibility = View.VISIBLE
+                                binding.layoutVacio.visibility = View.GONE
+                            }
+                            is Resultado.Exito -> {
+                                binding.progressBar.visibility = View.GONE
+                                listaOriginal = resultado.datos
+                                aplicarFiltro()
+                            }
+                            is Resultado.Error -> {
+                                binding.progressBar.visibility = View.GONE
+                                Toast.makeText(requireContext(), resultado.mensaje, Toast.LENGTH_SHORT).show()
+                            }
+                            is Resultado.Inactivo -> {
+                                binding.progressBar.visibility = View.GONE
+                            }
                         }
-                        is Resultado.Exito -> {
-                            binding.progressBar.visibility = View.GONE
-                            listaOriginal = resultado.datos
-                            aplicarFiltro()
-                        }
-                        is Resultado.Error -> {
-                            binding.progressBar.visibility = View.GONE
-                            Toast.makeText(requireContext(), resultado.mensaje, Toast.LENGTH_SHORT).show()
-                        }
-                        is Resultado.Inactivo -> {
-                            binding.progressBar.visibility = View.GONE
+                    }
+                }
+                // Observe operation result to reset filter after a successful creation
+                launch {
+                    mantenimientosViewModel.estadoOperacion.collect { opResult ->
+                        when (opResult) {
+                            is Resultado.Exito -> {
+                                binding.chipGroupFiltros.check(R.id.chipTodos)
+                                filtroActual = "Todos"
+                                aplicarFiltro()
+                                mantenimientosViewModel.reiniciarEstadoOperacion()
+                            }
+                            else -> {}
                         }
                     }
                 }

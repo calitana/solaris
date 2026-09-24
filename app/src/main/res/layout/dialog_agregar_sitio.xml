@@ -103,18 +103,18 @@
         </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilInversor"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:id="@+id/tilModelo"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Modelo">
+            android:hint="Modelo de Panel *">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etInversor"
+            <AutoCompleteTextView
+                android:id="@+id/actvModelo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords" />
+                android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout

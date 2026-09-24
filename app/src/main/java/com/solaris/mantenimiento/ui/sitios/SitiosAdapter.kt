@@ -30,8 +30,8 @@ class SitiosAdapter(
             binding.tvPotencia.text = " ${sitio.potenciaKw} kWp"
             binding.tvClienteSitio.text = " Cliente: ${sitio.nombreCliente}"
             binding.tvDireccionSitio.text = " ${sitio.ubicacion}"
-            binding.tvPaneles.text = "☀ ${sitio.cantidadPaneles} Paneles"
-            binding.tvInversor.text = "Planta Solar"
+            binding.tvPaneles.text = " ${sitio.cantidadPaneles} Paneles"
+            binding.tvInversor.text = sitio.modelo.ifBlank { "Jinko Solar Tiger Neo" }
 
             binding.btnEditar.setOnClickListener {
                 onEditarClick?.invoke(sitio)

@@ -97,6 +97,25 @@ class SitiosFragment : Fragment() {
         val clientes = sitiosViewModel.listaClientes.value
 
         var clienteSeleccionado: Cliente? = null
+
+        // Configurar modelo
+        val modelos = arrayOf(
+            "Jinko Solar Tiger Neo",
+            "Trina Solar Vertex+",
+            "Trina Solar Vertex",
+            "Canadian Solar HiKu",
+            "Canadian Solar N-Type Ku",
+            "Hanersun N-TOPCon Bifacial",
+            "Amerisolar Monocristalino"
+        )
+        var modeloSeleccionado: String = modelos[0]
+
+        val adapterModelos = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, modelos)
+        dialogBinding.actvModelo.setAdapter(adapterModelos)
+        dialogBinding.actvModelo.setText(modelos[0], false)
+        dialogBinding.actvModelo.setOnItemClickListener { _, _, position, _ ->
+            modeloSeleccionado = modelos[position]
+        }
         
         // Si es edición, prellenar datos
         if (sitio != null) {
@@ -106,6 +125,9 @@ class SitiosFragment : Fragment() {
             dialogBinding.etCantidadPaneles.setText(sitio.cantidadPaneles.toString())
             dialogBinding.actvCliente.setText(sitio.nombreCliente, false)
             clienteSeleccionado = clientes.find { it.id == sitio.idCliente }
+
+            modeloSeleccionado = sitio.modelo.ifBlank { modelos[0] }
+            dialogBinding.actvModelo.setText(modeloSeleccionado, false)
         }
 
         val nombresClientes = clientes.map { it.nombre }
@@ -143,7 +165,8 @@ class SitiosFragment : Fragment() {
                         potenciaKw = potencia,
                         idCliente = clienteSeleccionado?.id.orEmpty(),
                         nombreCliente = clienteSeleccionado?.nombre ?: "Cliente General",
-                        ubicacion = direccion
+                        ubicacion = direccion,
+                        modelo = modeloSeleccionado
                     )
                     Toast.makeText(requireContext(), "Sitio solar guardado exitosamente", Toast.LENGTH_SHORT).show()
                 } else {
@@ -153,7 +176,8 @@ class SitiosFragment : Fragment() {
                         potenciaKw = potencia,
                         idCliente = clienteSeleccionado?.id ?: sitio.idCliente,
                         nombreCliente = clienteSeleccionado?.nombre ?: sitio.nombreCliente,
-                        ubicacion = direccion
+                        ubicacion = direccion,
+                        modelo = modeloSeleccionado
                     )
                     sitiosViewModel.actualizarSitio(sitioActualizado)
                     Toast.makeText(requireContext(), "Sitio actualizado", Toast.LENGTH_SHORT).show()

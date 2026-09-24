@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.solartech.mantenimiento.databinding.FragmentAgregarMantenimientoBinding
 import com.solartech.mantenimiento.datos.modelo.SitioSolar
@@ -24,7 +25,7 @@ class AgregarMantenimientoFragment : Fragment() {
     private var _binding: FragmentAgregarMantenimientoBinding? = null
     private val binding get() = _binding!!
 
-    private val mantenimientosViewModel: MantenimientosViewModel by viewModels()
+    private val mantenimientosViewModel: MantenimientosViewModel by activityViewModels()
     private val authViewModel: AutenticacionViewModel by viewModels()
 
     private var sitioSeleccionado: SitioSolar? = null
