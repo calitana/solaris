@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Solaris</string>
+    <string name="nav_clientes">Clientes</string>
+    <string name="nav_sitios">Sitios Solares</string>
+    <string name="nav_mantenimientos">Mantenimientos</string>
+
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="bienvenido">Bienvenido a Solaris</string>
+    <string name="subtitulo_login">Gestión inteligente de plantas e instalaciones solares</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    
+    <string name="agregar_cliente">Nuevo Cliente</string>
+    <string name="agregar_sitio">Nuevo Sitio Solar</string>
+    <string name="agregar_mantenimiento">Nueva Orden de Servicio</string>
+    
+    <string name="nombre">Nombre</string>
+    <string name="empresa">Empresa</string>
+    <string name="telefono">Teléfono</string>
+    <string name="email">Email</string>
+    <string name="direccion">Dirección</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
+
+    <string name="sin_clientes">No hay clientes registrados aún</string>
+    <string name="sin_sitios">No hay sitios solares registrados</string>
+    <string name="sin_mantenimientos">No hay registros de mantenimiento</string>
+</resources>

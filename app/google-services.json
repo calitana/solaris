@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1008997946600",
+    "project_id": "solaris-1837a",
+    "storage_bucket": "solaris-1837a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1008997946600:android:66cd8a0207e68b896f255d",
+        "android_client_info": {
+          "package_name": "com.solartech.mantenimiento"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNQFOJaHk029aLTm1DBq0tmtOrohP6E-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

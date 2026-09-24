@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_clientes"
+        android:icon="@drawable/ic_people"
+        android:title="@string/nav_clientes" />
+    <item
+        android:id="@+id/navigation_sitios"
+        android:icon="@drawable/ic_solar_power"
+        android:title="@string/nav_sitios" />
+    <item
+        android:id="@+id/navigation_mantenimientos"
+        android:icon="@drawable/ic_build"
+        android:title="@string/nav_mantenimientos" />
+</menu>

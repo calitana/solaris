@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Paleta Principal Solaris -->
+    <color name="primary_solar">#F97316</color> <!-- Naranja Vibrante Solaris -->
+    <color name="primary_dark">#EA580C</color>
+    <color name="primary_light">#FB923C</color>
+    <color name="primary_container">#FFEDD5</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_primary_container">#7C2D12</color>
+
+    <!-- Secundario / Gris Oscuro -->
+    <color name="secondary_amber">#334155</color> <!-- Gris Slate para contraste -->
+    <color name="secondary_dark">#1E293B</color>
+    <color name="secondary_light">#475569</color>
+    <color name="secondary_container">#F1F5F9</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="on_secondary_container">#0F172A</color>
+
+    <!-- Terciario / Azul Técnico -->
+    <color name="tertiary_blue">#0284C7</color>
+    <color name="tertiary_container">#E0F2FE</color>
+
+    <!-- Fondos y Superficies -->
+    <color name="background_light">#FAFAFA</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_variant">#F4F4F5</color>
+    <color name="on_background">#18181B</color>
+    <color name="on_surface">#27272A</color>
+    <color name="on_surface_variant">#71717A</color>
+    <color name="outline">#D4D4D8</color>
+
+    <!-- Estados / Badges -->
+    <color name="status_pending">#EAB308</color>
+    <color name="status_pending_bg">#FEF08A</color>
+    <color name="status_in_progress">#3B82F6</color>
+    <color name="status_in_progress_bg">#DBEAFE</color>
+    <color name="status_completed">#10B981</color>
+    <color name="status_completed_bg">#D1FAE5</color>
+    <color name="status_cancelled">#EF4444</color>
+    <color name="status_cancelled_bg">#FEE2E2</color>
+
+    <color name="priority_high">#DC2626</color>
+    <color name="priority_medium">#D97706</color>
+    <color name="priority_low">#16A34A</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+</resources>
